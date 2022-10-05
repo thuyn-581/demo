@@ -10,6 +10,6 @@ spec:
     targetPort: 8080
   to:
     kind: Service
-    name: dokuwiki
+    name: dokuwiki-service
     weight: 100
   wildcardPolicy: None
