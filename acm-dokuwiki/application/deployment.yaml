@@ -54,7 +54,8 @@ spec:
           value: user@example.com
         - name: DOKUWIKI_WIKI_NAME
           value: My Wiki
-        image: docker.io/bitnami/dokuwiki:20200729.0.0-debian-10-r121
+        #image: docker.io/bitnami/dokuwiki:20200729.0.0-debian-10-r121
+        image: docker.io/bitnami/dokuwiki:20220731.1.0-debian-11-r0
         securityContext:
           runAsUser: 1000660000 
         imagePullPolicy: IfNotPresent
