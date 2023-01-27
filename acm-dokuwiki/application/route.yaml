@@ -4,7 +4,6 @@ metadata:
   labels:
     app.kubernetes.io/name: dokuwiki
   name: dokuwiki
-  namespace: dokuwiki
 spec:
   port:
     targetPort: 8080
