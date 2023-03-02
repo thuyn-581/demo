@@ -7,10 +7,10 @@
       labels:
         app.kubernetes.io/name: pacman
       annotations:
-        apps.open-cluster-management.io/github-path: deploy
+        apps.open-cluster-management.io/github-path: pacman
     spec:
       type: GitHub
-      pathname: https://github.com/mdelder/k8s-pacman-app.git
+      pathname: https://github.com/thuyn-581/demo.git
       # secretRef:
       #   name: github-credentials
     ---
@@ -35,8 +35,8 @@
     kind: Subscription
     metadata:
       annotations:
-        apps.open-cluster-management.io/git-branch: nohooks
-        apps.open-cluster-management.io/github-path: deploy
+        apps.open-cluster-management.io/git-branch: main
+        apps.open-cluster-management.io/github-path: pacman
       name: pacman-app
       namespace: pacman-app
       labels:
