@@ -65,5 +65,6 @@ spec:
       spec:
         repositoryDigestMirrors:
         - mirrors:
-          - registry.example.com:5000
+          # - registry.example.com:5000
+          - brew..registry.redhat.io
           source: registry.redhat.io
