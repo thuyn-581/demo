@@ -87,19 +87,19 @@ spec:
         # bootMode: "UEFI"
         rootDeviceHints:
           deviceName: /dev/sda
-        # nodeNetwork:
-        #   interfaces:
-        #     - name: eno1
-        #       macAddress: "AA:BB:CC:DD:EE:22"
-        #   config:
-        #     interfaces:
-        #       - name: eno1
-        #         type: ethernet
-        #         state: up
-        #         ipv4:
-        #           enabled: false
-        #         ipv6:
-        #           enabled: true
+        nodeNetwork:
+          interfaces:
+            - name: baremetal-1
+              macAddress: "52:54:00:ee:d4:0f"
+          config:
+            interfaces:
+              - name: baremetal-1
+                type: ethernet
+                state: up
+                ipv4:
+                  enabled: true
+                ipv6:
+                  enabled: false
         #           address:
         #           - ip: 1111:2222:3333:4444::aaaa:2
         #             prefix-length: 64
