@@ -44,7 +44,7 @@ spec:
         role: "master"
         bmcAddress: "idrac-virtualmedia+https://192.168.123.1:8000/redfish/v1/Systems/f3f48672-2d44-4ca2-b850-55f290358d83"
         bmcCredentialsName:
-          name: "master-1-0-bmh-secret"
+          name: "mist09-1-bmh-secret"
         bootMACAddress: "52:54:00:6e:a9:fc"
         # Use UEFISecureBoot to enable secure boot for this node
         bootMode: "UEFI"
@@ -82,7 +82,7 @@ spec:
         role: "master"
         bmcAddress: "idrac-virtualmedia+https://192.168.123.1:8000/redfish/v1/Systems/bca8b742-880f-45f7-9fb9-7106c7ef1294"
         bmcCredentialsName:
-          name: "master-1-1-bmh-secret"
+          name: "mist09-1-bmh-secret"
         bootMACAddress: "52:54:00:ee:d4:0f"
         bootMode: "UEFI"
         rootDeviceHints:
@@ -119,7 +119,7 @@ spec:
         role: "master"
         bmcAddress: "idrac-virtualmedia+https://192.168.123.1:8000/redfish/v1/Systems/6e694dc2-da87-4d8d-bf45-0e988f22c9be"
         bmcCredentialsName:
-          name: "master-1-2-bmh-secret"
+          name: "mist09-1-bmh-secret"
         bootMACAddress: "52:54:00:b6:55:4a"
         bootMode: "UEFI"
         rootDeviceHints:
