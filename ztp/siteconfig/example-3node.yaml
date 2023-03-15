@@ -6,7 +6,7 @@ metadata:
   name: "mist09-1"
   namespace: "mist09-1"
 spec:
-  baseDomain: "192.168.123.1:8000/redfish/v1/Systems/f3f48672-2d44-4ca2-b850-55f290358d83"
+  baseDomain: "install.dev09.red-chesterfield.com"
   pullSecretRef:
     name: "assisted-deployment-pull-secret"
   clusterImageSetNameRef: "img4.12.7-x86-64-appsub"
