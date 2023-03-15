@@ -60,11 +60,11 @@ spec:
       spec:
         displayName: disconnected-redhat-operators
         image: registry.redhat.io/redhat/redhat-operator-index:v4.12
-    - fileName: DisconnectedICSP.yaml
-      policyName: "config-policy"
-      spec:
-        repositoryDigestMirrors:
-        - mirrors:
-          # - registry.example.com:5000
-          - brew..registry.redhat.io
-          source: registry.redhat.io
+    # - fileName: DisconnectedICSP.yaml
+    #   policyName: "config-policy"
+    #   spec:
+    #     repositoryDigestMirrors:
+    #     - mirrors:
+    #       # - registry.example.com:5000
+    #       - brew..registry.redhat.io
+    #       source: registry.redhat.io
