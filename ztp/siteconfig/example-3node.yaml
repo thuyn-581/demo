@@ -40,7 +40,7 @@ spec:
     #biosConfigRef:
     #  filePath: "example-hw.profile"
     nodes:
-      - hostName: "master-1-0.install.dev09.red-chesterfield.com"
+      - hostName: "master-1-0.mist09-1.install.dev09.red-chesterfield.com"
         role: "master"
         bmcAddress: "idrac-virtualmedia+https://192.168.123.1:8000/redfish/v1/Systems/f3f48672-2d44-4ca2-b850-55f290358d83"
         bmcCredentialsName:
@@ -78,7 +78,7 @@ spec:
         #         next-hop-interface: eno1
         #         next-hop-address: 1111:2222:3333:4444::1
         #         table-id: 254
-      - hostName: "master-1-1.install.dev09.red-chesterfield.com"
+      - hostName: "master-1-1.mist09-1.install.dev09.red-chesterfield.com"
         role: "master"
         bmcAddress: "idrac-virtualmedia+https://192.168.123.1:8000/redfish/v1/Systems/bca8b742-880f-45f7-9fb9-7106c7ef1294"
         bmcCredentialsName:
@@ -115,7 +115,7 @@ spec:
         #         next-hop-interface: eno1
         #         next-hop-address: 1111:2222:3333:4444::1
         #         table-id: 254
-      - hostName: "master-1-2.install.dev09.red-chesterfield.com"
+      - hostName: "master-1-2.mist09-1.install.dev09.red-chesterfield.com"
         role: "master"
         bmcAddress: "idrac-virtualmedia+https://192.168.123.1:8000/redfish/v1/Systems/6e694dc2-da87-4d8d-bf45-0e988f22c9be"
         bmcCredentialsName:
