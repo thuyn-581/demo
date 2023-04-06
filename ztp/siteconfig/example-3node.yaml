@@ -9,7 +9,7 @@ spec:
   baseDomain: "install.dev09.red-chesterfield.com"
   pullSecretRef:
     name: "assisted-deployment-pull-secret"
-  clusterImageSetNameRef: "img4.12.7-multi-appsub"
+  clusterImageSetNameRef: "img4.12.9-multi-appsub"
   sshPublicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDm9hb6iTZJypEmzg4IZ767ze60UGhBWnjPXhovWVB7uKputdLzZhmlo36ifkXr/DTk8NGm47r6kXmz9NAF0pDHa5jX6yJFnhS4z5NY/mzsUX41gwiqBKYHgdp/KE1ylE8mbNon5ZpaaGvb876myjjPjPwWsD8hvXZirA5Q8TfDb/Pvgy1dhVH/uN05Ip1vVsp+bFGMPUJVWVUy/Eby5xW6OJv+FBOQq4nu6tslDZlHYXX2TSGrlW4x0i/oQMpKu/Y8ygAdjWqmAy6UBcho1nNWy15cp0jI5Fhjze171vSWZLAqJY+eFcL2kt/09RnY+MXyY/tIf+qNMyBE2Qltigah"
   clusters:
   - clusterName: "mist09-1"
@@ -45,128 +45,107 @@ spec:
         bmcAddress: "redfish-virtualmedia://192.168.123.1:8000/redfish/v1/Systems/f3f48672-2d44-4ca2-b850-55f290358d83"
         bmcCredentialsName:
           name: "mist09-1-bmh-secret"
-        bootMACAddress: "52:54:00:6e:a9:fc"
+        bootMACAddress: "52:54:00:ce:6e:cd"
         # Use UEFISecureBoot to enable secure boot for this node
         bootMode: "UEFI"
         rootDeviceHints:
           deviceName: /dev/sda
-        # nodeNetwork:
-        #   interfaces:
-        #     - name: eno1
-        #       macAddress: "52:54:00:6e:a9:fc"
-        #   config:
-        #     interfaces:
-        #       - name: eno1
-        #         type: ethernet
-        #         state: up
-        #         ipv4:
-        #           enabled: false
-        #         ipv6:
-        #           enabled: true
-        #           address:
-        #           - ip: 1111:2222:3333:4444::aaaa:1
-        #             prefix-length: 64
-        #     dns-resolver:
-        #       config:
-        #         search:
-        #         - example.com
-        #         server:
-        #         - 1111:2222:3333:4444::2
-        #     routes:
-        #       config:
-        #       - destination: ::/0
-        #         next-hop-interface: eno1
-        #         next-hop-address: 1111:2222:3333:4444::1
-        #         table-id: 254
+        nodeNetwork:
+          interfaces:
+            - name: enp0s4
+              type: ethernet
+              state: up
+              ipv4:
+                enabled: true
+                address:
+                  - ip: '192.168.124.85'
+                    prefix-length: 24
+                dhcp: false
+          dns-resolver:
+            config:
+              server:
+                - '8.8.8.8'
+          routes:
+            config:
+              - destination: 0.0.0.0/0
+                next-hop-address: '192.168.124.1'
+                next-hop-interface: enp0s4
+                table-id: 254          
       - hostName: "master-1-1"
         role: "master"
         bmcAddress: "redfish-virtualmedia://192.168.123.1:8000/redfish/v1/Systems/bca8b742-880f-45f7-9fb9-7106c7ef1294"
         bmcCredentialsName:
           name: "mist09-1-bmh-secret"
-        bootMACAddress: "52:54:00:ee:d4:0f"
+        bootMACAddress: "52:54:00:22:15:a9"
         bootMode: "UEFI"
         rootDeviceHints:
           deviceName: /dev/sda
-        # nodeNetwork:
-        #   interfaces:
-        #     - name: baremetal-1
-        #       macAddress: "52:54:00:ee:d4:0f"
-        #   config:
-        #     interfaces:
-        #       - name: baremetal-1
-        #         type: ethernet
-        #         state: up
-        #         ipv4:
-        #           enabled: true
-        #         ipv6:
-        #           enabled: false
-        #           address:
-        #           - ip: 1111:2222:3333:4444::aaaa:2
-        #             prefix-length: 64
-        #     dns-resolver:
-        #       config:
-        #         search:
-        #         - example.com
-        #         server:
-        #         - 1111:2222:3333:4444::2
-        #     routes:
-        #       config:
-        #       - destination: ::/0
-        #         next-hop-interface: eno1
-        #         next-hop-address: 1111:2222:3333:4444::1
-        #         table-id: 254
+        nodeNetwork:
+          interfaces:
+            - name: enp0s4
+              type: ethernet
+              state: up
+              ipv4:
+                enabled: true
+                address:
+                  - ip: '192.168.124.81'
+                    prefix-length: 24
+                dhcp: false
+          dns-resolver:
+            config:
+              server:
+                - '8.8.8.8'
+          routes:
+            config:
+              - destination: 0.0.0.0/0
+                next-hop-address: '192.168.124.1'
+                next-hop-interface: enp0s4
+                table-id: 254            
       - hostName: "master-1-2"
         role: "master"
         bmcAddress: "redfish-virtualmedia://192.168.123.1:8000/redfish/v1/Systems/6e694dc2-da87-4d8d-bf45-0e988f22c9be"
         bmcCredentialsName:
           name: "mist09-1-bmh-secret"
-        bootMACAddress: "52:54:00:b6:55:4a"
+        bootMACAddress: "52:54:00:4e:dc:7d"
         bootMode: "UEFI"
         rootDeviceHints:
           deviceName: /dev/sda
-        # nodeNetwork:
-        #   interfaces:
-        #     - name: eno1
-        #       macAddress: "AA:BB:CC:DD:EE:33"
-        #   config:
-        #     interfaces:
-        #       - name: eno1
-        #         type: ethernet
-        #         state: up
-        #         ipv4:
-        #           enabled: false
-        #         ipv6:
-        #           enabled: true
-        #           address:
-        #           - ip: 1111:2222:3333:4444::aaaa:3
-        #             prefix-length: 64
-        #     dns-resolver:
-        #       config:
-        #         search:
-        #         - example.com
-        #         server:
-        #         - 1111:2222:3333:4444::2
-        #     routes:
-        #       config:
-        #       - destination: ::/0
-        #         next-hop-interface: eno1
-        #         next-hop-address: 1111:2222:3333:4444::1
-        #         table-id: 254
-      - hostName: "worker-1-0"
-        role: "worker"
-        bmcAddress: "redfish-virtualmedia://192.168.123.1:8000/redfish/v1/Systems/9bc99651-6f73-4044-9786-af6c37d93009"
-        bmcCredentialsName:
-          name: "mist09-1-bmh-secret"
-        bootMACAddress: "52:54:00:2a:b6:4f"
-        bootMode: "UEFI"
-        rootDeviceHints:
-          deviceName: /dev/sda
-      - hostName: "worker-1-1"
-        role: "worker"
-        bmcAddress: "redfish-virtualmedia://192.168.123.1:8000/redfish/v1/Systems/96ad9c0b-3f2d-40af-91d6-c414bf3d4de6"
-        bmcCredentialsName:
-          name: "mist09-1-bmh-secret"
-        bootMACAddress: "52:54:00:aa:35:f2"
-        bootMode: "UEFI"
-        rootDeviceHints:
-          deviceName: /dev/sda          
+        nodeNetwork:
+          interfaces:
+            - name: enp0s4
+              type: ethernet
+              state: up
+              ipv4:
+                enabled: true
+                address:
+                  - ip: '192.168.124.138'
+                    prefix-length: 24
+                dhcp: false
+          dns-resolver:
+            config:
+              server:
+                - '8.8.8.8'
+          routes:
+            config:
+              - destination: 0.0.0.0/0
+                next-hop-address: '192.168.124.1'
+                next-hop-interface: enp0s4
+                table-id: 254            
+      # - hostName: "worker-1-0"
+      #   role: "worker"
+      #   bmcAddress: "redfish-virtualmedia://192.168.123.1:8000/redfish/v1/Systems/9bc99651-6f73-4044-9786-af6c37d93009"
+      #   bmcCredentialsName:
+      #     name: "mist09-1-bmh-secret"
+      #   bootMACAddress: "52:54:00:2a:b6:4f"
+      #   bootMode: "UEFI"
+      #   rootDeviceHints:
+      #     deviceName: /dev/sda
+      # - hostName: "worker-1-1"
+      #   role: "worker"
+      #   bmcAddress: "redfish-virtualmedia://192.168.123.1:8000/redfish/v1/Systems/96ad9c0b-3f2d-40af-91d6-c414bf3d4de6"
+      #   bmcCredentialsName:
+      #     name: "mist09-1-bmh-secret"
+      #   bootMACAddress: "52:54:00:aa:35:f2"
+      #   bootMode: "UEFI"
+      #   rootDeviceHints:
+      #     deviceName: /dev/sda          
