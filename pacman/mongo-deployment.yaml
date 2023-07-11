@@ -13,6 +13,11 @@ spec:
     metadata:
       labels:
         name: mongo
+      annotations:
+        pre.hook.backup.velero.io/container: mongo
+        pre.hook.backup.velero.io/command: '["/bin/bash", "-c", "echo quiesce > /tmp/quiesce.txt"]'
+        post.hook.backup.velero.io/container: mongo
+        post.hook.backup.velero.io/command: '["/bin/bash", "-c", "echo after_backup > /tmp/after_backup.txt"]'        
     spec:
       containers:
       # - image: bitnami/mongodb:latest
