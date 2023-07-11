@@ -15,8 +15,9 @@ spec:
         name: mongo
     spec:
       containers:
-      - image: bitnami/mongodb:latest
+      # - image: bitnami/mongodb:latest
       # - image: bitnami/mongodb:5.0.14
+      - image: bitnami/mongodb:4.4.8
         name: mongo
         ports:
         - name: mongo
