@@ -9,7 +9,7 @@ spec:
   baseDomain: "install.dev09.red-chesterfield.com"
   pullSecretRef:
     name: "assisted-deployment-pull-secret"
-  clusterImageSetNameRef: "img4.12.9-multi-appsub"
+  clusterImageSetNameRef: "img4.13.6-multi-appsub"
   sshPublicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDm9hb6iTZJypEmzg4IZ767ze60UGhBWnjPXhovWVB7uKputdLzZhmlo36ifkXr/DTk8NGm47r6kXmz9NAF0pDHa5jX6yJFnhS4z5NY/mzsUX41gwiqBKYHgdp/KE1ylE8mbNon5ZpaaGvb876myjjPjPwWsD8hvXZirA5Q8TfDb/Pvgy1dhVH/uN05Ip1vVsp+bFGMPUJVWVUy/Eby5xW6OJv+FBOQq4nu6tslDZlHYXX2TSGrlW4x0i/oQMpKu/Y8ygAdjWqmAy6UBcho1nNWy15cp0jI5Fhjze171vSWZLAqJY+eFcL2kt/09RnY+MXyY/tIf+qNMyBE2Qltigah"
   clusters:
   - clusterName: "mist09-1"
@@ -65,11 +65,6 @@ spec:
                     - ip: '192.168.124.85'
                       prefix-length: 24
                   dhcp: false
-                # ipv6:
-                #   enabled: true
-                #   address:
-                #   - ip: 1111:2222:3333:4444::aaaa:1
-                #     prefix-length: 64
             dns-resolver:
               config:
                 server:
@@ -147,22 +142,4 @@ spec:
                 - destination: 0.0.0.0/0
                   next-hop-address: '192.168.124.1'
                   next-hop-interface: enp0s4
-                  table-id: 254            
-      # - hostName: "worker-1-0"
-      #   role: "worker"
-      #   bmcAddress: "redfish-virtualmedia://192.168.123.1:8000/redfish/v1/Systems/9bc99651-6f73-4044-9786-af6c37d93009"
-      #   bmcCredentialsName:
-      #     name: "mist09-1-bmh-secret"
-      #   bootMACAddress: "52:54:00:2a:b6:4f"
-      #   bootMode: "UEFI"
-      #   rootDeviceHints:
-      #     deviceName: /dev/sda
-      # - hostName: "worker-1-1"
-      #   role: "worker"
-      #   bmcAddress: "redfish-virtualmedia://192.168.123.1:8000/redfish/v1/Systems/96ad9c0b-3f2d-40af-91d6-c414bf3d4de6"
-      #   bmcCredentialsName:
-      #     name: "mist09-1-bmh-secret"
-      #   bootMACAddress: "52:54:00:aa:35:f2"
-      #   bootMode: "UEFI"
-      #   rootDeviceHints:
-      #     deviceName: /dev/sda          
+                  table-id: 254                    

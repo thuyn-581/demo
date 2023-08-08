@@ -3,8 +3,8 @@
 apiVersion: ran.openshift.io/v1
 kind: SiteConfig
 metadata:
-  name: "mist09-1"
-  namespace: "mist09-1"
+  name: "mist09-0"
+  namespace: "mist09-0"
 spec:
   baseDomain: "install.dev09.red-chesterfield.com"
   pullSecretRef:
@@ -12,7 +12,7 @@ spec:
   clusterImageSetNameRef: "img4.12.9-multi-appsub"
   sshPublicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDm9hb6iTZJypEmzg4IZ767ze60UGhBWnjPXhovWVB7uKputdLzZhmlo36ifkXr/DTk8NGm47r6kXmz9NAF0pDHa5jX6yJFnhS4z5NY/mzsUX41gwiqBKYHgdp/KE1ylE8mbNon5ZpaaGvb876myjjPjPwWsD8hvXZirA5Q8TfDb/Pvgy1dhVH/uN05Ip1vVsp+bFGMPUJVWVUy/Eby5xW6OJv+FBOQq4nu6tslDZlHYXX2TSGrlW4x0i/oQMpKu/Y8ygAdjWqmAy6UBcho1nNWy15cp0jI5Fhjze171vSWZLAqJY+eFcL2kt/09RnY+MXyY/tIf+qNMyBE2Qltigah"
   clusters:
-  - clusterName: "mist09-1"
+  - clusterName: "mist09-0"
     networkType: "OVNKubernetes"
     clusterLabels:
       # These example cluster labels correspond to the bindingRules in the PolicyGenTemplate examples in ../policygentemplates:
@@ -27,8 +27,8 @@ spec:
       - cidr: 10.128.0.0/14
         hostPrefix: 23
     # For 3-node and standard clusters with static IPs, the API and Ingress IPs must be configured here
-    apiVIP: 192.168.124.5
-    ingressVIP: 192.168.124.10
+    apiVIP: 192.168.123.5
+    ingressVIP: 192.168.123.10
     serviceNetwork:
       - 172.30.0.0/16
     #additionalNTPSources:
@@ -40,12 +40,12 @@ spec:
     #biosConfigRef:
     #  filePath: "example-hw.profile"
     nodes:
-      - hostName: "master-1-0"
+      - hostName: "master-0-0"
         role: "master"
-        bmcAddress: "redfish-virtualmedia://192.168.123.1:8000/redfish/v1/Systems/f3f48672-2d44-4ca2-b850-55f290358d83"
+        bmcAddress: "redfish-virtualmedia://192.168.123.1:8000/redfish/v1/Systems/6dd98dd9-ff69-4f43-b3a1-5bf5e29672a7"
         bmcCredentialsName:
-          name: "mist09-1-bmh-secret"
-        bootMACAddress: "52:54:00:ce:6e:cd"
+          name: "mist09-0-bmh-secret"
+        bootMACAddress: "52:54:00:72:db:56"
         # Use UEFISecureBoot to enable secure boot for this node
         bootMode: "UEFI"
         rootDeviceHints:
@@ -53,7 +53,7 @@ spec:
         nodeNetwork:
           interfaces:
             - name: enp0s4
-              macAddress: "52:54:00:ce:6e:cd"
+              macAddress: "52:54:00:72:db:56"
           config:
             interfaces:
               - name: enp0s4
@@ -62,7 +62,7 @@ spec:
                 ipv4:
                   enabled: true
                   address:
-                    - ip: '192.168.124.85'
+                    - ip: '192.168.123.118'
                       prefix-length: 24
                   dhcp: false
                 # ipv6:
@@ -77,22 +77,22 @@ spec:
             routes:
               config:
                 - destination: 0.0.0.0/0
-                  next-hop-address: '192.168.124.1'
+                  next-hop-address: '192.168.123.1'
                   next-hop-interface: enp0s4
                   table-id: 254                       
-      - hostName: "master-1-1"
+      - hostName: "master-0-1"
         role: "master"
-        bmcAddress: "redfish-virtualmedia://192.168.123.1:8000/redfish/v1/Systems/bca8b742-880f-45f7-9fb9-7106c7ef1294"
+        bmcAddress: "redfish-virtualmedia://192.168.123.1:8000/redfish/v1/Systems/87224501-b4a4-4f23-adf8-38de54b33160"
         bmcCredentialsName:
-          name: "mist09-1-bmh-secret"
-        bootMACAddress: "52:54:00:22:15:a9"
+          name: "mist09-0-bmh-secret"
+        bootMACAddress: "52:54:00:26:0b:e0"
         bootMode: "UEFI"
         rootDeviceHints:
           deviceName: /dev/sda
         nodeNetwork:
           interfaces:
             - name: enp0s4
-              macAddress: "52:54:00:22:15:a9"
+              macAddress: "52:54:00:26:0b:e0"
           config:          
             interfaces:
               - name: enp0s4
@@ -101,7 +101,7 @@ spec:
                 ipv4:
                   enabled: true
                   address:
-                    - ip: '192.168.124.81'
+                    - ip: '192.168.123.139'
                       prefix-length: 24
                   dhcp: false
             dns-resolver:
@@ -111,22 +111,22 @@ spec:
             routes:
               config:
                 - destination: 0.0.0.0/0
-                  next-hop-address: '192.168.124.1'
+                  next-hop-address: '192.168.123.1'
                   next-hop-interface: enp0s4
                   table-id: 254            
-      - hostName: "master-1-2"
+      - hostName: "master-0-2"
         role: "master"
-        bmcAddress: "redfish-virtualmedia://192.168.123.1:8000/redfish/v1/Systems/6e694dc2-da87-4d8d-bf45-0e988f22c9be"
+        bmcAddress: "redfish-virtualmedia://192.168.123.1:8000/redfish/v1/Systems/40f0afc5-d494-4ffe-8fc3-a683bf46898f"
         bmcCredentialsName:
-          name: "mist09-1-bmh-secret"
-        bootMACAddress: "52:54:00:4e:dc:7d"
+          name: "mist09-0-bmh-secret"
+        bootMACAddress: "52:54:00:ae:75:d7"
         bootMode: "UEFI"
         rootDeviceHints:
           deviceName: /dev/sda
         nodeNetwork:
           interfaces:
             - name: enp0s4
-              macAddress: "52:54:00:4e:dc:7d"
+              macAddress: "52:54:00:ae:75:d7"
           config:             
             interfaces:
               - name: enp0s4
@@ -135,7 +135,7 @@ spec:
                 ipv4:
                   enabled: true
                   address:
-                    - ip: '192.168.124.138'
+                    - ip: '192.168.123.132'
                       prefix-length: 24
                   dhcp: false
             dns-resolver:
@@ -145,24 +145,6 @@ spec:
             routes:
               config:
                 - destination: 0.0.0.0/0
-                  next-hop-address: '192.168.124.1'
+                  next-hop-address: '192.168.123.1'
                   next-hop-interface: enp0s4
-                  table-id: 254            
-      # - hostName: "worker-1-0"
-      #   role: "worker"
-      #   bmcAddress: "redfish-virtualmedia://192.168.123.1:8000/redfish/v1/Systems/9bc99651-6f73-4044-9786-af6c37d93009"
-      #   bmcCredentialsName:
-      #     name: "mist09-1-bmh-secret"
-      #   bootMACAddress: "52:54:00:2a:b6:4f"
-      #   bootMode: "UEFI"
-      #   rootDeviceHints:
-      #     deviceName: /dev/sda
-      # - hostName: "worker-1-1"
-      #   role: "worker"
-      #   bmcAddress: "redfish-virtualmedia://192.168.123.1:8000/redfish/v1/Systems/96ad9c0b-3f2d-40af-91d6-c414bf3d4de6"
-      #   bmcCredentialsName:
-      #     name: "mist09-1-bmh-secret"
-      #   bootMACAddress: "52:54:00:aa:35:f2"
-      #   bootMode: "UEFI"
-      #   rootDeviceHints:
-      #     deviceName: /dev/sda          
+                  table-id: 254                   
