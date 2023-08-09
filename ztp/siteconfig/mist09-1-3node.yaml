@@ -64,7 +64,9 @@ spec:
                   address:
                     - ip: '192.168.124.85'
                       prefix-length: 24
-                  dhcp: false
+                  # dhcp: false
+                ipv6:
+                  enabled: false                     
             dns-resolver:
               config:
                 server:
@@ -98,7 +100,9 @@ spec:
                   address:
                     - ip: '192.168.124.81'
                       prefix-length: 24
-                  dhcp: false
+                  # dhcp: false
+                ipv6:
+                  enabled: false                     
             dns-resolver:
               config:
                 server:
@@ -132,7 +136,9 @@ spec:
                   address:
                     - ip: '192.168.124.138'
                       prefix-length: 24
-                  dhcp: false
+                  # dhcp: false
+                ipv6:
+                  enabled: false                     
             dns-resolver:
               config:
                 server:
