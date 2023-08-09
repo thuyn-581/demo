@@ -85,7 +85,7 @@ spec:
         bootMACAddress: "52:54:00:22:15:a9"
         bootMode: "UEFI"
         rootDeviceHints:
-          deviceName: /dev/sda
+          deviceName: /dev/sdb
         nodeNetwork:
           interfaces:
             - name: enp0s4
