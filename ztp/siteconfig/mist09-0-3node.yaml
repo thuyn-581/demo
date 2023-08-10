@@ -73,7 +73,7 @@ spec:
             dns-resolver:
               config:
                 server:
-                  - '8.8.8.8'
+                  - 8.8.8.8
             routes:
               config:
                 - destination: 0.0.0.0/0
@@ -109,7 +109,7 @@ spec:
             dns-resolver:
               config:
                 server:
-                  - '8.8.8.8'
+                  - 8.8.8.8
             routes:
               config:
                 - destination: 0.0.0.0/0
@@ -145,7 +145,7 @@ spec:
             dns-resolver:
               config:
                 server:
-                  - '8.8.8.8'
+                  - 8.8.8.8
             routes:
               config:
                 - destination: 0.0.0.0/0
