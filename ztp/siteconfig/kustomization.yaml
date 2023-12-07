@@ -6,4 +6,5 @@ generators:
 # - example-3node.yaml
 # - example-standard.yaml
 # - mist09-0-3node.yaml
-- mist09-1-3node.yaml
+  # - mist09-1-3node.yaml
+  - mist08-sno-0.yaml
