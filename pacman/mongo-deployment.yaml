@@ -23,12 +23,16 @@ spec:
       - image: docker.io/bitnami/mongodb
       #- image: bitnamilegacy/mongodb:5.0.14
         name: mongo
+        env:
+          - name: ALLOW_EMPTY_PASSWORD
+            value: 'yes'
         ports:
         - name: mongo
           containerPort: 27017
         volumeMounts:
           - name: mongo-db
             mountPath: /bitnami/mongodb/data/db
+
       volumes:
         - name: mongo-db
           persistentVolumeClaim:
