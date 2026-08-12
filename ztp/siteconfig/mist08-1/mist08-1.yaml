@@ -1,0 +1,140 @@
+apiVersion: siteconfig.open-cluster-management.io/v1alpha1
+kind: ClusterInstance
+metadata:
+  name: mist08-1
+  namespace: mist08-1
+spec:
+  clusterName: "mist08-1"
+  baseDomain: "qe.red-chesterfield.com"
+  clusterImageSetNameRef: "img4.22.9-x86-64-appsub" # References your desired OCP release
+  sshPublicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDm9hb6iTZJypEmzg4IZ767ze60UGhBWnjPXhovWVB7uKputdLzZhmlo36ifkXr/DTk8NGm47r6kXmz9NAF0pDHa5jX6yJFnhS4z5NY/mzsUX41gwiqBKYHgdp/KE1ylE8mbNon5ZpaaGvb876myjjPjPwWsD8hvXZirA5Q8TfDb/Pvgy1dhVH/uN05Ip1vVsp+bFGMPUJVWVUy/Eby5xW6OJv+FBOQq4nu6tslDZlHYXX2TSGrlW4x0i/oQMpKu/Y8ygAdjWqmAy6UBcho1nNWy15cp0jI5Fhjze171vSWZLAqJY+eFcL2kt/09RnY+MXyY/tIf+qNMyBE2Qltigah"
+  
+  templateRefs:
+    - name: ai-cluster-templates-v1
+      namespace: open-cluster-management
+
+  pullSecretRef:
+    name: "ztp-pull-secret"
+  
+  # Network Topology configurations
+  apiVIPs:
+    - 192.168.124.5
+  ingressVIPs:
+    - 192.168.124.10  
+  networkType: "OVNKubernetes"
+  clusterNetwork:
+    - cidr: "10.128.0.0/14"
+      hostPrefix: 23
+  serviceNetwork:
+    - cidr: "172.30.0.0/16"
+  machineNetwork:
+    - cidr: "192.168.124.0/24"
+
+  # Day 1 Cluster Manifest Overrides (Optional)
+  # extraManifestsRefs:
+  #   - name: "site1-extra-manifests-cm"
+
+  # Hardware node definitions 
+  nodes:
+    - hostName: "master-1-0"
+      role: "master"
+      bmcAddress: "redfish-virtualmedia://192.168.123.1:8000/redfish/v1/Systems/0ed55b9e-3678-4788-b5fc-b629d89b4186"
+      bmcCredentialsName:
+        name: "ztp-bmc-secret"
+      bootMACAddress: "52:54:00:56:c4:9b"
+      rootDeviceHints:
+        deviceName: "/dev/sda"
+      templateRefs:
+        - name: ai-node-templates-v1
+          namespace: open-cluster-management       
+      nodeNetwork:
+        interfaces:
+          - name: "enp0s4"
+            macAddress: "52:54:00:56:c4:9b"
+        config:
+          interfaces:
+            - name: enp0s4
+              type: ethernet
+              state: up
+              ipv4:
+                enabled: true
+                address:
+                  - ip: 192.168.124.143
+                    prefix-length: 24
+          routes:
+            config:
+              - destination: 0.0.0.0/0
+                next-hop-address: 192.168.124.1
+                next-hop-interface: enp0s4
+          dns-resolver:
+            config:
+              server:
+                - 8.8.8.8
+    - hostName: "master-1-1"
+      role: "master"
+      bmcAddress: "redfish-virtualmedia://192.168.123.1:8000/redfish/v1/Systems/dd74bb08-31d1-453f-b5c7-62ef0e25aa4d"
+      bmcCredentialsName:
+        name: "ztp-bmc-secret"
+      bootMACAddress: "52:54:00:de:f1:48"
+      rootDeviceHints:
+        deviceName: "/dev/sda"
+      templateRefs:
+        - name: ai-node-templates-v1
+          namespace: open-cluster-management       
+      nodeNetwork:
+        interfaces:
+          - name: "enp0s4"
+            macAddress: "52:54:00:de:f1:48"
+        config:
+          interfaces:
+            - name: enp0s4
+              type: ethernet
+              state: up
+              ipv4:
+                enabled: true
+                address:
+                  - ip: 192.168.124.65
+                    prefix-length: 24
+          routes:
+            config:
+              - destination: 0.0.0.0/0
+                next-hop-address: 192.168.124.1
+                next-hop-interface: enp0s4
+          dns-resolver:
+            config:
+              server:
+                - 8.8.8.8
+    - hostName: "master-1-2"
+      role: "master"
+      bmcAddress: "redfish-virtualmedia://192.168.123.1:8000/redfish/v1/Systems/14e6a9ef-c092-44ca-b58a-9c5b673ce9f2"
+      bmcCredentialsName:
+        name: "ztp-bmc-secret"
+      bootMACAddress: "52:54:00:06:6a:e8"
+      rootDeviceHints:
+        deviceName: "/dev/sda"
+      templateRefs:
+        - name: ai-node-templates-v1
+          namespace: open-cluster-management       
+      nodeNetwork:
+        interfaces:
+          - name: "enp0s4"
+            macAddress: "52:54:00:06:6a:e8"
+        config:
+          interfaces:
+            - name: enp0s4
+              type: ethernet
+              state: up
+              ipv4:
+                enabled: true
+                address:
+                  - ip: 192.168.124.130
+                    prefix-length: 24
+          routes:
+            config:
+              - destination: 0.0.0.0/0
+                next-hop-address: 192.168.124.1
+                next-hop-interface: enp0s4
+          dns-resolver:
+            config:
+              server:
+                - 8.8.8.8

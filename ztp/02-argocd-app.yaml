@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ztp-sno-clusters
+  namespace: openshift-gitops
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/thuyn-581/demo.git'
+    targetRevision: main
+    path: ztp/siteconfig/mist08/sno-0-0
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: sno-0-0
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
