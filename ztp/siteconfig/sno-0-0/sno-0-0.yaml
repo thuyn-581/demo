@@ -27,8 +27,8 @@ spec:
     - cidr: "192.168.123.0/24"
 
   # Day 1 Cluster Manifest Overrides (Optional)
-  # extraManifestsRefs:
-  #   - name: "site1-extra-manifests-cm"
+  extraManifestsRefs:
+    - name: "art-image-mirrors"
 
   # Hardware node definitions 
   nodes:
