@@ -43,7 +43,7 @@ spec:
         name: "ztp-bmc-secret"
       bootMACAddress: "52:54:00:42:ae:23"
       rootDeviceHints:
-        deviceName: "/dev/sda"
+        deviceName: "/dev/disk/by-path/pci-0000:03:00.0-scsi-0:0:0:0"
       templateRefs:
         - name: ai-node-templates-v1
           namespace: ocm       
@@ -77,7 +77,7 @@ spec:
         name: "ztp-bmc-secret"
       bootMACAddress: "52:54:00:7a:cc:c2"
       rootDeviceHints:
-        deviceName: "/dev/sda"
+        deviceName: "/dev/disk/by-path/pci-0000:03:00.0-scsi-0:0:0:0"
       templateRefs:
         - name: ai-node-templates-v1
           namespace: ocm       
@@ -111,7 +111,7 @@ spec:
         name: "ztp-bmc-secret"
       bootMACAddress: "52:54:00:42:9a:cb"
       rootDeviceHints:
-        deviceName: "/dev/sda"
+        deviceName: "/dev/disk/by-path/pci-0000:03:00.0-scsi-0:0:0:0"
       templateRefs:
         - name: ai-node-templates-v1
           namespace: ocm       

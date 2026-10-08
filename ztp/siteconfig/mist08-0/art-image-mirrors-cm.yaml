@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: art-image-mirrors
-  namespace: sno-0-0
+  namespace: mist08-0
 data:
   # The key can be any string, but numbered prefixes control execution order
   50-extra-registry-mirrors.yaml: |

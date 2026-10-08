@@ -28,8 +28,9 @@ spec:
 
   # Day 1 Cluster Manifest Overrides (Optional)
   extraManifestsRefs:
-    - name: "art-image-mirrors"
-
+    - name: art-image-mirrors
+    - name: image-policy-manifests
+    
   # Hardware node definitions 
   nodes:
     - hostName: "worker-0-0"

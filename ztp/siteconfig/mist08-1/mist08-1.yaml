@@ -43,7 +43,7 @@ spec:
         name: "ztp-bmc-secret"
       bootMACAddress: "52:54:00:56:c4:9b"
       rootDeviceHints:
-        deviceName: "/dev/sda"
+        deviceName: "/dev/disk/by-path/pci-0000:03:00.0-scsi-0:0:0:0"
       templateRefs:
         - name: ai-node-templates-v1
           namespace: open-cluster-management       
@@ -77,7 +77,7 @@ spec:
         name: "ztp-bmc-secret"
       bootMACAddress: "52:54:00:de:f1:48"
       rootDeviceHints:
-        deviceName: "/dev/sda"
+        deviceName: "/dev/disk/by-path/pci-0000:03:00.0-scsi-0:0:0:0"
       templateRefs:
         - name: ai-node-templates-v1
           namespace: open-cluster-management       
@@ -109,9 +109,9 @@ spec:
       bmcAddress: "redfish-virtualmedia://192.168.123.1:8000/redfish/v1/Systems/14e6a9ef-c092-44ca-b58a-9c5b673ce9f2"
       bmcCredentialsName:
         name: "ztp-bmc-secret"
-      bootMACAddress: "52:54:00:06:6a:e8"
+      bootMACAddress: "52:54:00:06:6a:e8"      
       rootDeviceHints:
-        deviceName: "/dev/sda"
+        deviceName: "/dev/disk/by-path/pci-0000:03:00.0-scsi-0:0:0:0"
       templateRefs:
         - name: ai-node-templates-v1
           namespace: open-cluster-management       
