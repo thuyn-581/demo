@@ -1,0 +1,6 @@
+apiVersion: hive.openshift.io/v1
+kind: ClusterImageSet
+metadata:
+  name: sno-0-0-imageset
+spec:
+  releaseImage: quay.io/openshift-release-dev/ocp-release@sha256:8a168f38849784062443f4d49aecbbf97bdabde6719686bc11d1d02856e6a220

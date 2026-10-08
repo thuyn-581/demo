@@ -2,6 +2,5 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - mist08-0.yaml
-  - art-image-mirrors-cm.yaml
-  - image-policy-manifests.yaml
+  - extra-manifests/
 

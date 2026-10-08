@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ztp-mist08-0
+  namespace: openshift-gitops
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/thuyn-581/demo.git'
+    targetRevision: main
+    path: ztp/siteconfig/mist08-0
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: mist08-0
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
