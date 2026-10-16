@@ -3,6 +3,5 @@ kind: Kustomization
 resources:
   - ../base
   - mist08-0.yaml
-  - extra-manifests/
 namespace: mist08-0
 

@@ -14,6 +14,12 @@ rules:
   resources: ["secrets"]
   resourceNames: ["pull-secret"]
   verbs: ["get"]
+- apiGroups: ["config.openshift.io"]
+  resources: ["clusterversions"]
+  verbs: ["get"]
+- apiGroups: ["hive.openshift.io"]
+  resources: ["clusterimagesets"]
+  verbs: ["get", "create", "update", "patch"]
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding

@@ -3,5 +3,4 @@ kind: Kustomization
 resources:
   - ../base
   - sno-0-0.yaml
-  - extra-manifests/
 namespace: sno-0-0
