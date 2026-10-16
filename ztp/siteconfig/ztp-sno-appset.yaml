@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: ztp-sno-0-0
+  namespace: openshift-gitops
+spec:
+  generators:
+    - list:
+        elements:
+          - clusterName: sno-0-0
+            path: ztp/siteconfig/sno-0-0
+  template:
+    metadata:
+      name: 'ztp-{{clusterName}}'
+    spec:
+      project: default
+      source:
+        repoURL: 'https://github.com/thuyn-581/demo.git'
+        targetRevision: main
+        path: '{{path}}'
+      destination:
+        server: 'https://kubernetes.default.svc'
+        namespace: '{{clusterName}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
