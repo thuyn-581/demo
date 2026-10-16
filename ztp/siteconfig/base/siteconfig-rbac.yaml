@@ -5,6 +5,17 @@ metadata:
   name: argocd-siteconfig-controller
 rules:
 - apiGroups:
+  - ""
+  resources:
+  - namespaces
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+- apiGroups:
   - siteconfig.open-cluster-management.io
   resources:
   - clusterinstances
@@ -60,3 +71,4 @@ subjects:
 - kind: ServiceAccount
   name: openshift-gitops-argocd-application-controller
   namespace: openshift-gitops
+  
