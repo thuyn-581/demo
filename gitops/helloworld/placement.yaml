@@ -1,7 +1,7 @@
 apiVersion: cluster.open-cluster-management.io/v1beta1
 kind: Placement
 metadata:
-  name: helloworld-app-placement
+  name: dr4hub-app-placement
   namespace: openshift-gitops
 spec:
   # numberOfClusters: 1

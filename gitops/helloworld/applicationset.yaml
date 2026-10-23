@@ -9,8 +9,7 @@ spec:
         configMapRef: acm-placement
         labelSelector:
           matchLabels:
-            cluster.open-cluster-management.io/placement: helloworld-app-placement
-        # namespace: openshift-gitops      
+            cluster.open-cluster-management.io/placement: dr4hub-app-placement     
   template:
     metadata:
       name: 'helloworld-app-{{clusterName}}'
