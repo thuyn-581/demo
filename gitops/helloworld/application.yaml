@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: helloworld-app
+  namespace: openshift-gitops
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/fxiang1/app-samples.git
+    targetRevision: main
+    path: helloworld
+  destination:
+    name: sno-0-0
+    namespace: git-helloworld-app-ns
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: helloworld-app
+  namespace: openshift-gitops
+spec:
+  generators:
+    - clusterDecisionResource:
+        configMapRef: acm-placement
+        labelSelector:
+          matchLabels:
+            cluster.open-cluster-management.io/placement: helloworld-app-placement
+        # namespace: openshift-gitops      
+  template:
+    metadata:
+      name: 'helloworld-app-{{clusterName}}'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/fxiang1/app-samples.git
+        targetRevision: main
+        path: helloworld
+      destination:
+        server: '{{server}}'
+        namespace: git-helloworld-app-ns
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
