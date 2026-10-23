@@ -7,7 +7,7 @@ metadata:
   labels:
     app.kubernetes.io/name: pacman
   annotations:
-    apps.open-cluster-management.io/github-path: pacman
+    apps.open-cluster-management.io/github-path: appsubs/pacman
 spec:
   type: GitHub
   pathname: https://github.com/thuyn-581/demo.git
@@ -36,7 +36,7 @@ kind: Subscription
 metadata:
   annotations:
     apps.open-cluster-management.io/git-branch: main
-    apps.open-cluster-management.io/github-path: pacman
+    apps.open-cluster-management.io/github-path: appsubs/pacman
   name: pacman-app
   namespace: pacman-app
   labels:
